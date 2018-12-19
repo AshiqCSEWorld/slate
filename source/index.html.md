@@ -1,10 +1,7 @@
 ---
-title: API Reference
+title: Instagram-Clone-API
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
   - javascript
 
 toc_footers:
@@ -19,15 +16,15 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the Instagram-clone API! You can use our API to access Instagram-clone API endpoints.
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+We have language bindings in JavaScript! You can view code examples in the dark area to the right.
 
 This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
 
-# Authentication
+<!-- # Authentication -->
 
-> To authorize, use this code:
+<!-- > To authorize, use this code:
 
 ```ruby
 require 'kittn'
@@ -63,13 +60,10 @@ Kittn expects for the API key to be included in all API requests to the server i
 
 <aside class="notice">
 You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
+</aside> -->
 
-# Kittens
 
-## Get All Kittens
-
-```ruby
+<!-- ```ruby
 require 'kittn'
 
 api = Kittn::APIClient.authorize!('meowmeowmeow')
@@ -88,14 +82,14 @@ curl "http://example.com/api/kittens"
   -H "Authorization: meowmeowmeow"
 ```
 
-```javascript
-const kittn = require('kittn');
+```javascript -->
+<!-- const kittn = require('kittn'); -->
 
-let api = kittn.authorize('meowmeowmeow');
+<!-- let api = kittn.authorize('meowmeowmeow');
 let kittens = api.kittens.get();
-```
+``` -->
 
-> The above command returns JSON structured like this:
+<!-- > The above command returns JSON structured like this:
 
 ```json
 [
@@ -114,126 +108,118 @@ let kittens = api.kittens.get();
     "cuteness": 10
   }
 ]
-```
+``` -->
 
-This endpoint retrieves all kittens.
+
+# Authentication
+
+## Register User
+
+This endpoint stores user in database and User will recieve an email confiramtion to his email adderess. He need to to verify his email to activate account.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`POST http://example.com/api/users/register`
 
-### Query Parameters
+```javascript
+message: {
+  'user is stored in db an email has been sent'
+}
+```
 
-Parameter | Default | Description
+Method | Path | Body
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+POST | api/users/register | userName, firstName, lastName, email, password
+
+
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+Remember — User has to visit the url (which was emailed to him), to verify his account!
 </aside>
 
-## Get a Specific Kitten
+## Verify a User
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+This endpoint will check if the token (which comes from email url) is matched with the users token.
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
+`GET http://example.com/api/users/verifyUser/:secretToken`
 
 ```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
+message: {
+  'token is matched, user is verified now'
+}
 ```
+Method | Path | 
+--------- | ------- | 
+GET | api/users/verifyUser/:secretToken | 
+<aside class="success">
+Remember — If the token is matched, render the user into login page!
+</aside>
 
-> The above command returns JSON structured like this:
+## Login a User
 
-```json
-{
-  "id": 2,
-  "deleted" : ":("
+### HTTP Request
+`POST http://example.com/api/users/login`
+
+```javascript
+message: {
+    "success": true,
+    "token": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjMWFhN2VmZTVjNDEyNTk3MThhNDhjMSIsImF2YXRhciI6Ii8vd3d3LmdyYXZhdGFyLmNvbS9hdmF0YXIvMmQ1NDVhN2QyYzk4MDYwZDFiZmIzMThjZDFhMzMzMjM_cz0yMDAmcj1wZyZkPW1tIiwiaWF0IjoxNTQ1MjU0MDQwLCJleHAiOjE1NDUyNTc2NDB9.6oAzkpBo7E02bnl4PiIQLXNojJLdoHVMnaQCG2tTjZ0"
+}
+```
+Method | Path | Body
+--------- | ------- | -----------
+POST | api/users/login |  email, password
+
+## Forget Password
+User will recieve an email confiramtion to his email adderess. He has to visit the link from his mail (which included token) to reset his password.
+
+### HTTP Request
+`POST http://example.com/api/users/forget`
+
+```javascript
+message: {
+  'user with reset token is stored in db and an email has been sent including that reset token'
+}
+```
+Method | Path | Body
+--------- | ------- | -----------
+POST | api/users/forget |  email
+
+## Reset Password
+This endpoint will check if the token (which comes from email url) is matched with the users token.
+
+### HTTP Request
+`GET http://example.com/api/users/reset/:token`
+
+```javascript
+message: {
+  'token is matched, you should render confirm-password form now'
 }
 ```
 
-This endpoint deletes a specific kitten.
+Method | Path | 
+--------- | ------- | 
+GET | api/users/reset/:token | 
+<aside class="success">
+Remember — If the token is matched, render the user into reset-password page!
+</aside>
+
+## Update user with new password
+This endpoint will update the user with newly created password
 
 ### HTTP Request
+`POST http://example.com/api/users/reset/:token`
 
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
-
+```javascript
+message: {
+  "users password has been reset. redirect him/her to login page..."
+}
+```
+Method | Path | Body
+--------- | ------- | -----------
+POST | api/users/reset/:token |  password, password2
+<aside class="success">
+Remember — If two input field has been matched, render the user into login page!
+</aside>
