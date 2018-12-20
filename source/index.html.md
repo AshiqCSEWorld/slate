@@ -122,8 +122,21 @@ This endpoint stores user in database and User will recieve an email confiramtio
 `POST http://example.com/api/users/register`
 
 ```javascript
-message: {
-  'user is stored in db an email has been sent'
+user: {
+  
+    "_id": "5c1ae5ed2662482a7905ad73",
+    "userName": "john",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "ashiquejava@gmail.com",
+    "avatar": "//www.gravatar.com/avatar/8e50107ce9ade1f6a3d3e9f8e42d36bf?s=200&r=pg&d=mm",
+    "password": "$2a$10$wMRYwGWnKRw/vQhUs2/3G.V8SOCjtXsYpweYNV.tcpn7i.nzSt236",
+    "secretToken": "c3671ed5acb26871dca8",
+    "resetTokenExpires": "2018-12-20T01:44:29.251Z",
+    "isActive": false,
+    "date": "2018-12-20T00:44:29.252Z",
+    "__v": 0
+
 }
 ```
 
