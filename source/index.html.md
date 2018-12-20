@@ -123,20 +123,11 @@ This endpoint stores user in database and User will recieve an email confiramtio
 
 ```javascript
 user: {
-  
-    "_id": "5c1ae5ed2662482a7905ad73",
-    "userName": "john",
-    "firstName": "John",
-    "lastName": "Doe",
-    "email": "ashiquejava@gmail.com",
-    "avatar": "//www.gravatar.com/avatar/8e50107ce9ade1f6a3d3e9f8e42d36bf?s=200&r=pg&d=mm",
-    "password": "$2a$10$wMRYwGWnKRw/vQhUs2/3G.V8SOCjtXsYpweYNV.tcpn7i.nzSt236",
-    "secretToken": "c3671ed5acb26871dca8",
-    "resetTokenExpires": "2018-12-20T01:44:29.251Z",
-    "isActive": false,
-    "date": "2018-12-20T00:44:29.252Z",
-    "__v": 0
-
+    "userName": "ashik",
+    "firstName": "Ashiqur",
+    "lastName": "Rahman",
+    "email": "ashikduit@gmail.com",
+    "avatar": "//www.gravatar.com/avatar/2d545a7d2c98060d1bfb318cd1a33323?s=200&r=pg&d=mm"
 }
 ```
 
@@ -156,16 +147,16 @@ This endpoint will check if the token (which comes from email url) is matched wi
 
 ### HTTP Request
 
-`GET http://example.com/api/users/verifyUser/:secretToken`
+`POST http://example.com/api/users/verifyUser/:secretToken`
 
 ```javascript
 message: {
-  'token is matched, user is verified now'
+    "success": true
 }
 ```
 Method | Path | 
 --------- | ------- | 
-GET | api/users/verifyUser/:secretToken | 
+POST | api/users/verifyUser/:secretToken | 
 <aside class="success">
 Remember — If the token is matched, render the user into login page!
 </aside>
@@ -178,7 +169,12 @@ Remember — If the token is matched, render the user into login page!
 ```javascript
 message: {
     "success": true,
-    "token": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjMWFhN2VmZTVjNDEyNTk3MThhNDhjMSIsImF2YXRhciI6Ii8vd3d3LmdyYXZhdGFyLmNvbS9hdmF0YXIvMmQ1NDVhN2QyYzk4MDYwZDFiZmIzMThjZDFhMzMzMjM_cz0yMDAmcj1wZyZkPW1tIiwiaWF0IjoxNTQ1MjU0MDQwLCJleHAiOjE1NDUyNTc2NDB9.6oAzkpBo7E02bnl4PiIQLXNojJLdoHVMnaQCG2tTjZ0"
+    "token": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjMWJhNDhiN2Q4NjliMjk1MTE1MmQ0YSIsImF2YXRhciI6Ii8vd3d3LmdyYXZhdGFyLmNvbS9hdmF0YXIvMmQ1NDVhN2QyYzk4MDYwZDFiZmIzMThjZDFhMzMzMjM_cz0yMDAmcj1wZyZkPW1tIiwiaWF0IjoxNTQ1MzE1OTU0LCJleHAiOjE1NDUzMTk1NTR9.czRENM6nVL8BkBwyGoLKmprh2K-V5_Q0qe-ExFufH8o",
+    "userName": "ashik",
+    "firstName": "Ashiqur",
+    "lastName": "Rahman",
+    "email": "ashikduit@gmail.com",
+    "avatar": "//www.gravatar.com/avatar/2d545a7d2c98060d1bfb318cd1a33323?s=200&r=pg&d=mm"
 }
 ```
 Method | Path | Body
@@ -193,7 +189,7 @@ User will recieve an email confiramtion to his email adderess. He has to visit t
 
 ```javascript
 message: {
-  'user with reset token is stored in db and an email has been sent including that reset token'
+    "success": true
 }
 ```
 Method | Path | Body
@@ -204,17 +200,17 @@ POST | api/users/forget |  email
 This endpoint will check if the token (which comes from email url) is matched with the users token.
 
 ### HTTP Request
-`GET http://example.com/api/users/reset/:token`
+`POST http://example.com/api/users/resetpass/:token`
 
 ```javascript
 message: {
-  'token is matched, you should render confirm-password form now'
+    "success": true
 }
 ```
 
 Method | Path | 
 --------- | ------- | 
-GET | api/users/reset/:token | 
+POST | api/users/resetpass/:token | 
 <aside class="success">
 Remember — If the token is matched, render the user into reset-password page!
 </aside>
