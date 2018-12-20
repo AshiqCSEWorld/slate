@@ -355,20 +355,11 @@ let kittens = api.kittens.get();
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST http://example.com/api/users/register</code></p>
 <pre class="highlight javascript tab-javascript"><code><span class="nx">user</span><span class="p">:</span> <span class="p">{</span>
-
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5c1ae5ed2662482a7905ad73"</span><span class="p">,</span>
-    <span class="s2">"userName"</span><span class="p">:</span> <span class="s2">"john"</span><span class="p">,</span>
-    <span class="s2">"firstName"</span><span class="p">:</span> <span class="s2">"John"</span><span class="p">,</span>
-    <span class="s2">"lastName"</span><span class="p">:</span> <span class="s2">"Doe"</span><span class="p">,</span>
-    <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"ashiquejava@gmail.com"</span><span class="p">,</span>
-    <span class="s2">"avatar"</span><span class="p">:</span> <span class="s2">"//www.gravatar.com/avatar/8e50107ce9ade1f6a3d3e9f8e42d36bf?s=200&amp;r=pg&amp;d=mm"</span><span class="p">,</span>
-    <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"$2a$10$wMRYwGWnKRw/vQhUs2/3G.V8SOCjtXsYpweYNV.tcpn7i.nzSt236"</span><span class="p">,</span>
-    <span class="s2">"secretToken"</span><span class="p">:</span> <span class="s2">"c3671ed5acb26871dca8"</span><span class="p">,</span>
-    <span class="s2">"resetTokenExpires"</span><span class="p">:</span> <span class="s2">"2018-12-20T01:44:29.251Z"</span><span class="p">,</span>
-    <span class="s2">"isActive"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"date"</span><span class="p">:</span> <span class="s2">"2018-12-20T00:44:29.252Z"</span><span class="p">,</span>
-    <span class="s2">"__v"</span><span class="p">:</span> <span class="mi">0</span>
-
+    <span class="s2">"userName"</span><span class="p">:</span> <span class="s2">"ashik"</span><span class="p">,</span>
+    <span class="s2">"firstName"</span><span class="p">:</span> <span class="s2">"Ashiqur"</span><span class="p">,</span>
+    <span class="s2">"lastName"</span><span class="p">:</span> <span class="s2">"Rahman"</span><span class="p">,</span>
+    <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"ashikduit@gmail.com"</span><span class="p">,</span>
+    <span class="s2">"avatar"</span><span class="p">:</span> <span class="s2">"//www.gravatar.com/avatar/2d545a7d2c98060d1bfb318cd1a33323?s=200&amp;r=pg&amp;d=mm"</span>
 <span class="p">}</span>
 </code></pre>
 <table><thead>
@@ -391,9 +382,9 @@ Remember — User has to visit the url (which was emailed to him), to verify his
 <h2 id='verify-a-user'>Verify a User</h2>
 <p>This endpoint will check if the token (which comes from email url) is matched with the users token.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/api/users/verifyUser/:secretToken</code></p>
+<p><code>POST http://example.com/api/users/verifyUser/:secretToken</code></p>
 <pre class="highlight javascript tab-javascript"><code><span class="nx">message</span><span class="p">:</span> <span class="p">{</span>
-  <span class="s1">'token is matched, user is verified now'</span>
+    <span class="s2">"success"</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">}</span>
 </code></pre>
 <table><thead>
@@ -403,7 +394,7 @@ Remember — User has to visit the url (which was emailed to him), to verify his
 </tr>
 </thead><tbody>
 <tr>
-<td>GET</td>
+<td>POST</td>
 <td>api/users/verifyUser/:secretToken</td>
 </tr>
 </tbody></table>
@@ -415,7 +406,12 @@ Remember — If the token is matched, render the user into login page!
 <p><code>POST http://example.com/api/users/login</code></p>
 <pre class="highlight javascript tab-javascript"><code><span class="nx">message</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">"success"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"token"</span><span class="p">:</span> <span class="s2">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjMWFhN2VmZTVjNDEyNTk3MThhNDhjMSIsImF2YXRhciI6Ii8vd3d3LmdyYXZhdGFyLmNvbS9hdmF0YXIvMmQ1NDVhN2QyYzk4MDYwZDFiZmIzMThjZDFhMzMzMjM_cz0yMDAmcj1wZyZkPW1tIiwiaWF0IjoxNTQ1MjU0MDQwLCJleHAiOjE1NDUyNTc2NDB9.6oAzkpBo7E02bnl4PiIQLXNojJLdoHVMnaQCG2tTjZ0"</span>
+    <span class="s2">"token"</span><span class="p">:</span> <span class="s2">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjMWJhNDhiN2Q4NjliMjk1MTE1MmQ0YSIsImF2YXRhciI6Ii8vd3d3LmdyYXZhdGFyLmNvbS9hdmF0YXIvMmQ1NDVhN2QyYzk4MDYwZDFiZmIzMThjZDFhMzMzMjM_cz0yMDAmcj1wZyZkPW1tIiwiaWF0IjoxNTQ1MzE1OTU0LCJleHAiOjE1NDUzMTk1NTR9.czRENM6nVL8BkBwyGoLKmprh2K-V5_Q0qe-ExFufH8o"</span><span class="p">,</span>
+    <span class="s2">"userName"</span><span class="p">:</span> <span class="s2">"ashik"</span><span class="p">,</span>
+    <span class="s2">"firstName"</span><span class="p">:</span> <span class="s2">"Ashiqur"</span><span class="p">,</span>
+    <span class="s2">"lastName"</span><span class="p">:</span> <span class="s2">"Rahman"</span><span class="p">,</span>
+    <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"ashikduit@gmail.com"</span><span class="p">,</span>
+    <span class="s2">"avatar"</span><span class="p">:</span> <span class="s2">"//www.gravatar.com/avatar/2d545a7d2c98060d1bfb318cd1a33323?s=200&amp;r=pg&amp;d=mm"</span>
 <span class="p">}</span>
 </code></pre>
 <table><thead>
@@ -436,7 +432,7 @@ Remember — If the token is matched, render the user into login page!
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>POST http://example.com/api/users/forget</code></p>
 <pre class="highlight javascript tab-javascript"><code><span class="nx">message</span><span class="p">:</span> <span class="p">{</span>
-  <span class="s1">'user with reset token is stored in db and an email has been sent including that reset token'</span>
+    <span class="s2">"success"</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">}</span>
 </code></pre>
 <table><thead>
@@ -455,9 +451,9 @@ Remember — If the token is matched, render the user into login page!
 <h2 id='reset-password'>Reset Password</h2>
 <p>This endpoint will check if the token (which comes from email url) is matched with the users token.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>GET http://example.com/api/users/reset/:token</code></p>
+<p><code>POST http://example.com/api/users/resetpass/:token</code></p>
 <pre class="highlight javascript tab-javascript"><code><span class="nx">message</span><span class="p">:</span> <span class="p">{</span>
-  <span class="s1">'token is matched, you should render confirm-password form now'</span>
+    <span class="s2">"success"</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">}</span>
 </code></pre>
 <table><thead>
@@ -467,8 +463,8 @@ Remember — If the token is matched, render the user into login page!
 </tr>
 </thead><tbody>
 <tr>
-<td>GET</td>
-<td>api/users/reset/:token</td>
+<td>POST</td>
+<td>api/users/resetpass/:token</td>
 </tr>
 </tbody></table>
 
