@@ -110,6 +110,9 @@ let kittens = api.kittens.get();
 ]
 ``` -->
 
+# Installation manual
+1. run 'npm install' from terminal
+2. run 'npm start' from terminal
 
 # Authentication
 
