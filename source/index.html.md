@@ -235,3 +235,24 @@ POST | api/users/reset/:token |  password, password2
 <aside class="success">
 Remember — If two input field has been matched, render the user into login page!
 </aside>
+
+# POST-ROUTES
+
+## POST-IT
+we store data which comes from frontend, we save it, and give some response back.
+
+### HTTP Request
+`POST http://example.com/api/post-it`
+```javascript
+ {
+  "firstname": "bayjid",
+  "lastname": "hossain",
+  "mesg": "Posted",
+  "post_id": "5c2099ddbadffc56f7b9b81a",
+  "success": true
+}
+```
+
+Method | Path | Body
+--------- | ------- | -----------
+POST | api/post-it | desc, image, filter, location, type, group, tags
