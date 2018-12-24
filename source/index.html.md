@@ -243,6 +243,7 @@ we store data which comes from frontend, we save it, and give some response back
 
 ### HTTP Request
 `POST http://example.com/api/post-it`
+
 ```javascript
  {
   "firstname": "bayjid",
