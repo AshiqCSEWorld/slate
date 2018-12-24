@@ -248,6 +248,14 @@
               </ul>
           </li>
           <li>
+            <a href="#post-routes" class="toc-h1 toc-link" data-title="POST-ROUTES">POST-ROUTES</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-it" class="toc-h2 toc-link" data-title="POST-IT">POST-IT</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -504,6 +512,33 @@ Remember — If the token is matched, render the user into reset-password page!
 <aside class="success">
 Remember — If two input field has been matched, render the user into login page!
 </aside>
+<h1 id='post-routes'>POST-ROUTES</h1><h2 id='post-it'>POST-IT</h2>
+<p>we store data which comes from frontend, we save it, and give some response back.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>POST http://example.com/api/post-it</code>
+<code>javascript
+ {
+  &quot;firstname&quot;: &quot;bayjid&quot;,
+  &quot;lastname&quot;: &quot;hossain&quot;,
+  &quot;mesg&quot;: &quot;Posted&quot;,
+  &quot;post_id&quot;: &quot;5c2099ddbadffc56f7b9b81a&quot;,
+  &quot;success&quot;: true
+}
+</code></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Path</th>
+<th>Body</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>POST</td>
+<td>api/post-it</td>
+<td>desc, image, filter, location, type, group, tags</td>
+</tr>
+</tbody></table>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
