@@ -257,3 +257,50 @@ we store data which comes from frontend, we save it, and give some response back
 Method | Path | Body
 --------- | ------- | -----------
 POST | api/post-it | desc, image, filter, location, type, group, tags
+
+## Get following
+NOTE: for now just return this data(hardcode)
+
+### HTTP Request
+`POST http://example.com/api/get-followings`
+
+```javascript
+ {
+  [
+  { "follow_to": 24, "follow_to_username": "takkar" },
+  { "follow_to": 11, "follow_to_username": "nobita" },
+  { "follow_to": 32, "follow_to_username": "iamrakib" },
+  { "follow_to": 30, "follow_to_username": "doraemon" },
+  { "follow_to": 28, "follow_to_username": "selena" },
+  { "follow_to": 16, "follow_to_username": "zayn" }
+]
+}
+```
+
+Method | Path |
+--------- | ------- | 
+GET | api/get-followings |
+
+
+## Edit Post
+
+### HTTP Request
+`POST http://example.com/api/edit-post`
+
+```javascript
+{"success":true,"mssg":"Post updated!!"}
+```
+Method | Path | Body
+--------- | ------- | -----------
+POST | api/edit-post | description, post_id
+
+## Untag
+### HTTP Request
+`POST http://example.com/api/untag`
+
+```javascript
+{"success": true}
+```
+Method | Path | Body
+--------- | ------- | -----------
+POST | api/edit-post | post, user
