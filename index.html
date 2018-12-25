@@ -253,6 +253,15 @@
                   <li>
                     <a href="#post-it" class="toc-h2 toc-link" data-title="POST-IT">POST-IT</a>
                   </li>
+                  <li>
+                    <a href="#get-following" class="toc-h2 toc-link" data-title="Get following">Get following</a>
+                  </li>
+                  <li>
+                    <a href="#edit-post" class="toc-h2 toc-link" data-title="Edit Post">Edit Post</a>
+                  </li>
+                  <li>
+                    <a href="#untag" class="toc-h2 toc-link" data-title="Untag">Untag</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -535,6 +544,66 @@ Remember — If two input field has been matched, render the user into login pag
 <td>POST</td>
 <td>api/post-it</td>
 <td>desc, image, filter, location, type, group, tags</td>
+</tr>
+</tbody></table>
+<h2 id='get-following'>Get following</h2>
+<p>NOTE: for now just return this data(hardcode)</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>POST http://example.com/api/get-followings</code></p>
+<pre class="highlight javascript tab-javascript"><code> <span class="p">{</span>
+  <span class="p">[</span>
+  <span class="p">{</span> <span class="s2">"follow_to"</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span> <span class="s2">"follow_to_username"</span><span class="p">:</span> <span class="s2">"takkar"</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="s2">"follow_to"</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s2">"follow_to_username"</span><span class="p">:</span> <span class="s2">"nobita"</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="s2">"follow_to"</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span> <span class="s2">"follow_to_username"</span><span class="p">:</span> <span class="s2">"iamrakib"</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="s2">"follow_to"</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">"follow_to_username"</span><span class="p">:</span> <span class="s2">"doraemon"</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="s2">"follow_to"</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span> <span class="s2">"follow_to_username"</span><span class="p">:</span> <span class="s2">"selena"</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="s2">"follow_to"</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="s2">"follow_to_username"</span><span class="p">:</span> <span class="s2">"zayn"</span> <span class="p">}</span>
+<span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Path</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GET</td>
+<td>api/get-followings</td>
+</tr>
+</tbody></table>
+<h2 id='edit-post'>Edit Post</h2><h3 id='http-request-9'>HTTP Request</h3>
+<p><code>POST http://example.com/api/edit-post</code></p>
+<pre class="highlight javascript tab-javascript"><code><span class="p">{</span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"mssg"</span><span class="p">:</span><span class="s2">"Post updated!!"</span><span class="p">}</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Path</th>
+<th>Body</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>POST</td>
+<td>api/edit-post</td>
+<td>description, post_id</td>
+</tr>
+</tbody></table>
+<h2 id='untag'>Untag</h2><h3 id='http-request-10'>HTTP Request</h3>
+<p><code>POST http://example.com/api/untag</code></p>
+<pre class="highlight javascript tab-javascript"><code><span class="p">{</span><span class="s2">"success"</span><span class="p">:</span> <span class="kc">true</span><span class="p">}</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Path</th>
+<th>Body</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>POST</td>
+<td>api/edit-post</td>
+<td>post, user</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
