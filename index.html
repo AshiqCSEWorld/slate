@@ -590,7 +590,23 @@ Remember — If two input field has been matched, render the user into login pag
 <p>we store data which comes from frontend, we save it, and give some response back.</p>
 <h3 id='http-request-7'>HTTP Request</h3>
 <p><code>POST http://example.com/api/post-it</code></p>
-<pre class="highlight javascript tab-javascript"><code> <span class="p">{</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Payload</span>
+<span class="p">{</span>
+    <span class="s2">"desc"</span><span class="p">:</span> <span class="s2">"hello asiq21"</span><span class="p">,</span>
+    <span class="s2">"filter"</span><span class="p">:</span> <span class="s2">"filter-aden"</span><span class="p">,</span>
+    <span class="s2">"location"</span><span class="p">:</span> <span class="s2">"Unnamed Road, Bangladesh"</span><span class="p">,</span>
+    <span class="s2">"group"</span><span class="p">:</span> <span class="s2">"undefined"</span><span class="p">,</span>
+    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"5c1e3a633d2b1f24b83822a6"</span><span class="p">,</span>
+
+    <span class="s2">"tags"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">"user"</span><span class="p">:</span> <span class="s2">"5c1de3f2f047172d89afbb8f"</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+
+<span class="c1">// response</span>
+ <span class="p">{</span>
   <span class="s2">"firstname"</span><span class="p">:</span> <span class="s2">"bayjid"</span><span class="p">,</span>
   <span class="s2">"lastname"</span><span class="p">:</span> <span class="s2">"hossain"</span><span class="p">,</span>
   <span class="s2">"mesg"</span><span class="p">:</span> <span class="s2">"Posted"</span><span class="p">,</span>
@@ -643,7 +659,14 @@ Remember — If two input field has been matched, render the user into login pag
 </tbody></table>
 <h2 id='edit-post'>Edit Post</h2><h3 id='http-request-9'>HTTP Request</h3>
 <p><code>POST http://example.com/api/edit-post</code></p>
-<pre class="highlight javascript tab-javascript"><code><span class="p">{</span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"mssg"</span><span class="p">:</span><span class="s2">"Post updated!!"</span><span class="p">}</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// payload</span>
+<span class="p">{</span> 
+ <span class="s2">"description"</span><span class="p">:</span><span class="s2">"hello world"</span><span class="p">,</span>
+ <span class="s2">"post_id"</span><span class="p">:</span> <span class="s2">"5c2080d0be950643daada9a9"</span>
+<span class="p">}</span>
+
+<span class="c1">// response</span>
+<span class="p">{</span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"mssg"</span><span class="p">:</span><span class="s2">"Post updated!!"</span><span class="p">}</span>
 </code></pre>
 <table><thead>
 <tr>
@@ -660,7 +683,14 @@ Remember — If two input field has been matched, render the user into login pag
 </tbody></table>
 <h2 id='untag'>Untag</h2><h3 id='http-request-10'>HTTP Request</h3>
 <p><code>POST http://example.com/api/untag</code></p>
-<pre class="highlight javascript tab-javascript"><code><span class="p">{</span><span class="s2">"success"</span><span class="p">:</span> <span class="kc">true</span><span class="p">}</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// payload</span>
+<span class="p">{</span> 
+    <span class="s2">"post"</span><span class="p">:</span> <span class="s2">"5c2081e27a8184452fbb1e51"</span><span class="p">,</span>
+    <span class="s2">"user"</span><span class="p">:</span> <span class="s2">"5c1de3f2f047172d89afbb8f"</span>
+<span class="p">}</span>
+
+<span class="c1">// response</span>
+<span class="p">{</span><span class="s2">"success"</span><span class="p">:</span> <span class="kc">true</span><span class="p">}</span>
 </code></pre>
 <table><thead>
 <tr>
@@ -677,7 +707,12 @@ Remember — If two input field has been matched, render the user into login pag
 </tbody></table>
 <h2 id='delete-post'>Delete Post</h2><h3 id='http-request-11'>HTTP Request</h3>
 <p><code>POST http://example.com/api/delete-post</code></p>
-<pre class="highlight javascript tab-javascript"><code><span class="p">{</span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"mssg"</span><span class="p">:</span><span class="s2">"Post deleted!!"</span><span class="p">}</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// payload</span>
+<span class="p">{</span> 
+    <span class="s2">"postId"</span><span class="p">:</span> <span class="s2">"5c2081e27a8184457jihu8tg"</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="c1">// response</span>
+<span class="p">{</span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"mssg"</span><span class="p">:</span><span class="s2">"Post deleted!!"</span><span class="p">}</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// If no post is found to be deleted</span>
 <span class="p">{</span>
   <span class="s2">"noPost"</span><span class="p">:</span> <span class="s2">"Post Not found'"</span>
