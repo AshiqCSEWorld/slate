@@ -351,7 +351,25 @@ we store data which comes from frontend, we save it, and give some response back
 ### HTTP Request
 `POST http://example.com/api/post-it`
 
+
+
 ```javascript
+// Payload
+{
+    "desc": "hello asiq21",
+    "filter": "filter-aden",
+    "location": "Unnamed Road, Bangladesh",
+    "group": "undefined",
+    "type": "5c1e3a633d2b1f24b83822a6",
+    
+    "tags": [
+      {
+        "user": "5c1de3f2f047172d89afbb8f"
+      }
+    ]
+}
+
+// response
  {
   "firstname": "bayjid",
   "lastname": "hossain",
@@ -402,6 +420,13 @@ GET | api/get-followings |
 `POST http://example.com/api/edit-post`
 
 ```javascript
+// payload
+{ 
+ "description":"hello world",
+ "post_id": "5c2080d0be950643daada9a9"
+}
+
+// response
 {"success":true,"mssg":"Post updated!!"}
 ```
 Method | Path | Body
@@ -413,6 +438,13 @@ POST | api/edit-post | description, post_id
 `POST http://example.com/api/untag`
 
 ```javascript
+// payload
+{ 
+	"post": "5c2081e27a8184452fbb1e51",
+	"user": "5c1de3f2f047172d89afbb8f"
+}
+
+// response
 {"success": true}
 ```
 Method | Path | Body
@@ -425,6 +457,11 @@ POST | api/edit-post | post, user
 `POST http://example.com/api/delete-post`
 
 ```javascript
+// payload
+{ 
+	"postId": "5c2081e27a8184457jihu8tg",
+}
+// response
 {"success":true,"mssg":"Post deleted!!"}
 ```
 ```javascript
