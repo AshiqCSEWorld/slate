@@ -236,6 +236,113 @@ POST | api/users/reset/:token |  password, password2
 Remember — If two input field has been matched, render the user into login page!
 </aside>
 
+# Authentication related errors
+
+## Errors might occur while registering
+### if userName is empty
+```javascript
+{
+    "userName": "userName is required"
+}
+```
+### if userName is less than 2 or greater than 30 character
+```javascript
+{
+    "userName": "userName must be between 2 and 30 characters"
+}
+```
+### if firstName is empty
+```javascript
+{
+    "firstName": "firstName is required"
+}
+```
+### if firstName is less than 2 or greater than 30 character
+```javascript
+{
+    "firstName": "firstName must be between 2 and 30 characters"
+}
+```
+### if lastName is empty
+```javascript
+{
+    "lastName": "lastName is required"
+}
+```
+### if lastName is less than 2 or greater than 30 character
+```javascript
+{
+    "lastName": "lastName must be between 2 and 30 characters"
+}
+```
+
+### if password is empty
+```javascript
+{
+    "password": "password is required"
+}
+```
+
+### if password is less than 6 characters
+```javascript
+{
+    "password": "password must be at least 6 characters"
+}
+```
+
+## Errors might occur while logging
+
+### if userName is empty
+```javascript
+{
+    "userName": "userName is required"
+}
+```
+### if userName is less than 2 or greater than 30 character
+```javascript
+{
+    "userName": "userName must be between 2 and 30 characters"
+}
+```
+### if password is empty
+```javascript
+{
+    "password": "password is required"
+}
+```
+### if password is less than 6 characters
+```javascript
+{
+    "password": "password must be at least 6 characters"
+}
+```
+
+## Errors might occur while reset password
+### if email is empty
+```javascript
+{
+    "email": "email is required"
+}
+```
+### if email is invalid
+```javascript
+{
+    "email": "email is invalid"
+}
+```
+### if password is empty
+```javascript
+{
+    "password": "password is required"
+}
+```
+### if password is less than 6 characters
+```javascript
+{
+    "password": "password must be at least 6 characters"
+}
+```
+
 # POST-ROUTES
 
 ## POST-IT
@@ -251,6 +358,13 @@ we store data which comes from frontend, we save it, and give some response back
   "mesg": "Posted",
   "post_id": "5c2099ddbadffc56f7b9b81a",
   "success": true
+}
+```
+
+```javascript
+// If no post is found
+{
+  "noPost": "There is no post for this user"
 }
 ```
 
@@ -304,3 +418,21 @@ POST | api/edit-post | description, post_id
 Method | Path | Body
 --------- | ------- | -----------
 POST | api/edit-post | post, user
+
+## Delete Post
+
+### HTTP Request
+`POST http://example.com/api/delete-post`
+
+```javascript
+{"success":true,"mssg":"Post deleted!!"}
+```
+```javascript
+// If no post is found to be deleted
+{
+  "noPost": "Post Not found'"
+}
+```
+Method | Path | Body
+--------- | ------- | -----------
+POST | api/delete-post | postId
