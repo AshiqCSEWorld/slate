@@ -473,3 +473,41 @@ POST | api/edit-post | post, user
 Method | Path | Body
 --------- | ------- | -----------
 POST | api/delete-post | postId
+
+## Like-Post
+
+### HTTP Request
+`POST http://example.com/api/likes/5c2593441f8d4c64a82a613a`
+
+```javascript
+// payload
+{ 
+	"postId": "5c2593441f8d4c64a82a613a",
+}
+// response
+// If the post is already liked by the user 
+{"alreadyLiked": 'User already liked this post'}
+
+// otherwise
+{
+    "post_id": "5c25a4f8251d9c774589f982",
+    "liked_by": [
+        {
+            "_id": "5c25a53a251d9c774589f985",
+            "user": "5c231c5d8582ed1329809873",
+            "like_time": "2018-12-28T04:23:22.551Z"
+        },
+        {
+            "like_time": "2018-12-28T04:22:33.955Z",
+            "_id": "5c25a509251d9c774589f984",
+            "user": "5c258df9e037516132c2285a"
+        }
+    ]
+}
+
+// If no post is found by given id
+{"postNotFound": 'no post found'}
+```
+Method | Path | Body/Params
+--------- | ------- | -----------
+POST | api/likes/:postId | postId
