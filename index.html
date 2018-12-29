@@ -285,6 +285,12 @@
                   <li>
                     <a href="#remove-like" class="toc-h2 toc-link" data-title="Remove-Like">Remove-Like</a>
                   </li>
+                  <li>
+                    <a href="#bookmark-post" class="toc-h2 toc-link" data-title="Bookmark-Post">Bookmark-Post</a>
+                  </li>
+                  <li>
+                    <a href="#remove-bookmark" class="toc-h2 toc-link" data-title="Remove-Bookmark">Remove-Bookmark</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -738,7 +744,7 @@ Remember — If two input field has been matched, render the user into login pag
 </tr>
 </tbody></table>
 <h2 id='like-post'>Like-Post</h2><h3 id='http-request-12'>HTTP Request</h3>
-<p><code>POST http://example.com/api/likes/5c2593441f8d4c64a82a613a</code></p>
+<p><code>POST http://example.com/api/likes</code></p>
 <pre class="highlight javascript tab-javascript"><code><span class="c1">// payload</span>
 <span class="p">{</span> 
     <span class="s2">"postId"</span><span class="p">:</span> <span class="s2">"5c2593441f8d4c64a82a613a"</span><span class="p">,</span>
@@ -749,27 +755,27 @@ Remember — If two input field has been matched, render the user into login pag
 
 <span class="c1">// otherwise</span>
 <span class="p">{</span>
-    <span class="s2">"success"</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="nl">mssg</span><span class="p">:</span> <span class="s1">'Successfully liked'</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="c1">// If no post is found by given id</span>
-<span class="p">{</span><span class="s2">"postNotFound"</span><span class="p">:</span> <span class="s1">'no post found'</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">"postNotFound"</span><span class="p">:</span> <span class="s1">'post was not found'</span><span class="p">}</span>
 </code></pre>
 <table><thead>
 <tr>
 <th>Method</th>
 <th>Path</th>
-<th>Body/Params</th>
+<th>Body</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>POST</td>
-<td>api/likes/:postId</td>
+<td>api/likes</td>
 <td>postId</td>
 </tr>
 </tbody></table>
 <h2 id='remove-like'>Remove-Like</h2><h3 id='http-request-13'>HTTP-Request</h3>
-<p><code>POST http://example.com/api/remove-like/5c2593441f8d4c64a82a613a</code></p>
+<p><code>POST http://example.com/api/unlikes</code></p>
 <pre class="highlight javascript tab-javascript"><code><span class="c1">// payload</span>
 <span class="p">{</span> 
     <span class="s2">"postId"</span><span class="p">:</span> <span class="s2">"5c2593441f8d4c64a82a613a"</span><span class="p">,</span>
@@ -786,18 +792,82 @@ Remember — If two input field has been matched, render the user into login pag
 <span class="p">}</span>
 
 <span class="c1">// If no post is found by given id</span>
-<span class="p">{</span><span class="s2">"postNotFound"</span><span class="p">:</span> <span class="s1">'no post found'</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">"postNotFound"</span><span class="p">:</span> <span class="s1">'post was not found'</span><span class="p">}</span>
 </code></pre>
 <table><thead>
 <tr>
 <th>Method</th>
 <th>Path</th>
-<th>Body/Params</th>
+<th>Body</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>POST</td>
-<td>api/remove-like/:postId</td>
+<td>api/unlikes</td>
+<td>postId</td>
+</tr>
+</tbody></table>
+<h2 id='bookmark-post'>Bookmark-Post</h2><h3 id='http-request-14'>HTTP-Request</h3>
+<p><code>POST http://example.com/api/bookmarks</code></p>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// payload</span>
+<span class="p">{</span> 
+    <span class="s2">"postId"</span><span class="p">:</span> <span class="s2">"5c2593441f8d4c64a82a613a"</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="c1">// response</span>
+<span class="c1">// If the post is already bookmarked by the user </span>
+<span class="p">{</span><span class="s2">"alreadyBookmarked"</span><span class="p">:</span> <span class="s1">'User already bookmarked this post'</span><span class="p">}</span>
+
+<span class="c1">// otherwise</span>
+<span class="p">{</span>
+    <span class="nl">mssg</span><span class="p">:</span> <span class="s1">'Successfully bookmarked'</span> 
+<span class="p">}</span>
+
+<span class="c1">// If no post is found by given id</span>
+<span class="p">{</span><span class="s2">"postNotFound"</span><span class="p">:</span> <span class="s1">'post was not found'</span><span class="p">}</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Path</th>
+<th>Body</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>POST</td>
+<td>api/likes</td>
+<td>postId</td>
+</tr>
+</tbody></table>
+<h2 id='remove-bookmark'>Remove-Bookmark</h2><h3 id='http-request-15'>HTTP-Request</h3>
+<p><code>POST http://example.com/api/remove-bookmark</code></p>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// payload</span>
+<span class="p">{</span> 
+    <span class="s2">"postId"</span><span class="p">:</span> <span class="s2">"5c2593441f8d4c64a82a613a"</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="c1">// response</span>
+<span class="c1">// If the post is not bookmarked by the user </span>
+<span class="p">{</span>
+     <span class="nl">notBookmarked</span><span class="p">:</span> <span class="s1">'You have not yet bookmarked this post'</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1">// otherwise</span>
+<span class="p">{</span>
+    <span class="s2">"success"</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+
+<span class="c1">// If no post is found by given id</span>
+<span class="p">{</span><span class="s2">"postNotFound"</span><span class="p">:</span> <span class="s1">'post was not found'</span><span class="p">}</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Path</th>
+<th>Body</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>POST</td>
+<td>api/remove-bookmark</td>
 <td>postId</td>
 </tr>
 </tbody></table>
