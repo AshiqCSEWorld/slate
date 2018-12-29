@@ -477,7 +477,7 @@ POST | api/delete-post | postId
 ## Like-Post
 
 ### HTTP Request
-`POST http://example.com/api/likes/5c2593441f8d4c64a82a613a`
+`POST http://example.com/api/likes`
 
 ```javascript
 // payload
@@ -490,20 +490,20 @@ POST | api/delete-post | postId
 
 // otherwise
 {
-    "success": true
+    mssg: 'Successfully liked',
 }
 
 // If no post is found by given id
-{"postNotFound": 'no post found'}
+{"postNotFound": 'post was not found'}
 ```
-Method | Path | Body/Params
+Method | Path | Body
 --------- | ------- | -----------
-POST | api/likes/:postId | postId
+POST | api/likes | postId
 
 ## Remove-Like 
 
 ### HTTP-Request
-`POST http://example.com/api/remove-like/5c2593441f8d4c64a82a613a`
+`POST http://example.com/api/unlikes`
 
 ```javascript
 // payload
@@ -522,9 +522,64 @@ POST | api/likes/:postId | postId
 }
 
 // If no post is found by given id
-{"postNotFound": 'no post found'}
+{"postNotFound": 'post was not found'}
 ```
 
-Method | Path | Body/Params
+Method | Path | Body
 --------- | ------- | -----------
-POST | api/remove-like/:postId | postId
+POST | api/unlikes | postId
+
+## Bookmark-Post
+
+### HTTP-Request
+`POST http://example.com/api/bookmarks`
+
+```javascript
+// payload
+{ 
+	"postId": "5c2593441f8d4c64a82a613a",
+}
+// response
+// If the post is already bookmarked by the user 
+{"alreadyBookmarked": 'User already bookmarked this post'}
+
+// otherwise
+{
+    mssg: 'Successfully bookmarked' 
+}
+
+// If no post is found by given id
+{"postNotFound": 'post was not found'}
+```
+Method | Path | Body
+--------- | ------- | -----------
+POST | api/likes | postId
+
+## Remove-Bookmark
+
+### HTTP-Request
+`POST http://example.com/api/remove-bookmark`
+
+```javascript
+// payload
+{ 
+	"postId": "5c2593441f8d4c64a82a613a",
+}
+// response
+// If the post is not bookmarked by the user 
+{
+     notBookmarked: 'You have not yet bookmarked this post',
+}
+
+// otherwise
+{
+    "success": true
+}
+
+// If no post is found by given id
+{"postNotFound": 'post was not found'}
+```
+
+Method | Path | Body
+--------- | ------- | -----------
+POST | api/remove-bookmark | postId
